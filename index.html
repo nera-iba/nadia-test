@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/1f99888007.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -15,12 +16,53 @@
                 <li><a href="#">Side 3</a></li>
             </ul>
         </nav>
-        <main></main>
+    </header>
+        <main>
+            <div class="carousel">
+                <i class="prev fa-solid fa-arrow-left"></i>
+                <img src="img/img-1.jpg" alt="image 1">
+                <img src="img/img-2.jpg" alt="image 2">
+                <img src="img/img-3.jpg" alt="image 3">
+                <i class="next fa-solid fa-arrow-right"></i>
+              </div>
+        </main>
         <footer>
             <section></section>
             <section></section>
             <section></section>
         </footer>
-    </header>
+   
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+
+        let currentIndex = 0;
+
+        carousel.querySelector('.prev').addEventListener('click', () => {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1; 
+            } 
+            updateCarousel(); 
+        });
+
+        carousel.querySelector('.next').addEventListener('click', () => { 
+            currentIndex++; 
+            if (currentIndex > images.length - 1) {
+            currentIndex = 0; 
+            } 
+            updateCarousel(); 
+        });
+
+        function updateCarousel() {
+        images.forEach((image, index) => {
+            if (index === currentIndex) {
+            image.style.display = 'block';
+            } else {
+            image.style.display = 'none';
+                }
+            });
+            }
+    </script>
 </body>
 </html>
