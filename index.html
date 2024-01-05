@@ -18,6 +18,7 @@
         </nav>
     </header>
         <main>
+            <!--Meget simpel slider/carousel-->
             <div class="carousel">
                 <i class="prev fa-solid fa-arrow-left"></i>
                 <img src="img/img-1.jpg" alt="image 1">
@@ -33,23 +34,63 @@
         </footer>
    
     <script>
-        const carousel = document.querySelector('.carousel');
-        const images = carousel.querySelectorAll('img');
+        //sikrer, at resten af JavaScript-koden indeni blokken ikke eksekveres, før DOM'en er fuldt indlæst.
+        //Lytter efter DOMContentLoaded-hændelsen for at sikre, at koden eksekveres, når DOM'en er fuldt indlæst
+      document.addEventListener('DOMContentLoaded', function() {
+    // Finder det carousel-element og billeder
+    const carousel = document.querySelector('.carousel');
+    const images = Array.from(carousel.querySelectorAll('img'));
 
-        let currentIndex = 0;
+    // Initialiserer det aktuelle billede til det første
+    let currentIndex = 0;
 
-        carousel.querySelector('.prev').addEventListener('click', () => {
-            currentIndex--;
-            if (currentIndex < 0) {
+    // Sætter det første billede til at være synligt ved indlæsning
+    images.forEach((image, index) => {
+        image.style.display = index === currentIndex ? 'block' : 'none';
+    });
+
+    // Tilføjer en klikhændelse for "Forrige" knappen
+    carousel.querySelector('.prev').addEventListener('click', () => {
+        // Opdaterer det aktuelle billede til det foregående
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        // Opdaterer karusellen med det nye billede
+        updateCarousel();
+    });
+
+    // Tilføjer en klikhændelse for "Næste" knappen
+    carousel.querySelector('.next').addEventListener('click', () => {
+        // Opdaterer det aktuelle billede til det næste
+        currentIndex = (currentIndex + 1) % images.length;
+        // Opdaterer karusellen med det nye billede
+        updateCarousel();
+    });
+
+    // Funktion til at opdatere karusellen baseret på currentIndex
+    function updateCarousel() {
+        // Skjuler alle billeder undtagen det aktuelle
+        images.forEach((image, index) => {
+            image.style.display = index === currentIndex ? 'block' : 'none';
+        });
+    }
+});
+
+
+
+
+        /*
+        carousel.querySelector('.prev').addEventListener('click', () => { //Gør brug af arrow function
+           
+            currentIndex--; //Fjerne 1 fra indexværdien for at gå tilbage til sidste billede
+            if (currentIndex < 0) { //Hvis index har en større værdi en 0 så fjern 1 fra indexværdien
                 currentIndex = images.length - 1; 
             } 
-            updateCarousel(); 
+            updateCarousel(); //kald på funktionen
         });
 
         carousel.querySelector('.next').addEventListener('click', () => { 
-            currentIndex++; 
-            if (currentIndex > images.length - 1) {
-            currentIndex = 0; 
+            currentIndex++; //Tilføjer en til billedets indexværdi
+            if (currentIndex > images.length - 1) { //Tjekker om currentIndex har nået det sidste billede i billedsættet
+            currentIndex = 0; //Sætter indexværdien til 0 for at starte forfra
             } 
             updateCarousel(); 
         });
@@ -62,7 +103,7 @@
             image.style.display = 'none';
                 }
             });
-            }
+            }*/
     </script>
 </body>
 </html>

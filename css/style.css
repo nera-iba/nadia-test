@@ -1,7 +1,6 @@
 .carousel {
   position: relative;
-  width: 500px;
-  height: 300px;
+  width: 100vw;
 }
 
 .carousel img {
@@ -14,10 +13,7 @@
 
 .carousel i {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
+  top: 35vh;
   color: black;
   font-size: 32px;
   cursor: pointer;
