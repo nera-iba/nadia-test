@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/1f99888007.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <nav>
@@ -17,62 +18,68 @@
             </ul>
         </nav>
     </header>
-        <main>
-            <!--Meget simpel slider/carousel-->
-            <div class="carousel">
-                <i class="prev fa-solid fa-arrow-left"></i>
-                <img src="img/img-1.jpg" alt="image 1">
-                <img src="img/img-2.jpg" alt="image 2">
-                <img src="img/img-3.jpg" alt="image 3">
-                <i class="next fa-solid fa-arrow-right"></i>
-              </div>
-        </main>
-        <footer>
-            <section></section>
-            <section></section>
-            <section></section>
-        </footer>
-   
+    <main>
+        <!--Meget simpel slider/carousel-->
+        <div class="carousel">
+            <i class="prev fa-solid fa-arrow-left"></i>
+            <img src="img/img-1.jpg" alt="image 1 sunset">
+            <img src="img/img-2.jpg" alt="image 2">
+            <img src="img/img-3.jpg" alt="image 3">
+            <i class="next fa-solid fa-arrow-right"></i>
+        </div>
+    </main>
+    <footer>
+        <section></section>
+        <section></section>
+        <section></section>
+    </footer>
+
     <script>
         //sikrer, at resten af JavaScript-koden indeni blokken ikke eksekveres, før DOM'en er fuldt indlæst.
         //Lytter efter DOMContentLoaded-hændelsen for at sikre, at koden eksekveres, når DOM'en er fuldt indlæst
-      document.addEventListener('DOMContentLoaded', function() {
-    // Finder det carousel-element og billeder
-    const carousel = document.querySelector('.carousel');
-    const images = Array.from(carousel.querySelectorAll('img'));
+        document.addEventListener('DOMContentLoaded', () => {
+            // Finder det carousel-element og billeder
+            const carousel = document.querySelector('.carousel');
+            const images = Array.from(carousel.querySelectorAll('img'));
 
-    // Initialiserer det aktuelle billede til det første
-    let currentIndex = 0;
+            // Initialiserer det aktuelle billede til det første
+            let currentIndex = 0;
 
-    // Sætter det første billede til at være synligt ved indlæsning
-    images.forEach((image, index) => {
-        image.style.display = index === currentIndex ? 'block' : 'none';
-    });
+            // Sætter det første billede til at være synligt ved indlæsning
+            images.forEach((image, index) => {
+                image.style.display = index === currentIndex ? 'block' : 'none';
+            });
 
-    // Tilføjer en klikhændelse for "Forrige" knappen
-    carousel.querySelector('.prev').addEventListener('click', () => {
-        // Opdaterer det aktuelle billede til det foregående
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        // Opdaterer karusellen med det nye billede
-        updateCarousel();
-    });
+            // Tilføjer en klikhændelse for "Forrige" knappen
+            carousel.querySelector('.prev').addEventListener('click', () => {
+                // Opdaterer det aktuelle billede til det foregående
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                // Opdaterer karusellen med det nye billede
+                updateCarousel();
+            });
 
-    // Tilføjer en klikhændelse for "Næste" knappen
-    carousel.querySelector('.next').addEventListener('click', () => {
-        // Opdaterer det aktuelle billede til det næste
-        currentIndex = (currentIndex + 1) % images.length;
-        // Opdaterer karusellen med det nye billede
-        updateCarousel();
-    });
+            // Tilføjer en klikhændelse for "Næste" knappen
+            carousel.querySelector('.next').addEventListener('click', () => {
+                // Opdaterer det aktuelle billede til det næste
+                currentIndex = (currentIndex + 1) % images.length;
+                // Opdaterer karusellen med det nye billede
+                updateCarousel();
+            });
 
-    // Funktion til at opdatere karusellen baseret på currentIndex
-    function updateCarousel() {
-        // Skjuler alle billeder undtagen det aktuelle
-        images.forEach((image, index) => {
+            // Funktion til at opdatere karusellen baseret på currentIndex
+            const updateCarousel = () => {
+                //Skjuler alle billeder undtagen det aktuelle
+               images.forEach((image, index) => {
             image.style.display = index === currentIndex ? 'block' : 'none';
+                 });
+            }
+
+            // Tilføjer automatisk skift hvert 3000 millisekunder (3 sekunder)
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }, 3000);
         });
-    }
-});
 
 
 
@@ -96,14 +103,7 @@
         });
 
         function updateCarousel() {
-        images.forEach((image, index) => {
-            if (index === currentIndex) {
-            image.style.display = 'block';
-            } else {
-            image.style.display = 'none';
-                }
-            });
-            }*/
-    </script>
+        images.forEach((image, index) => {*/
+            </script>
 </body>
 </html>
