@@ -6,11 +6,11 @@
 
 /*-------------Navbar-----------------*/
 
-.logo{
+.logo {
   width: 50px;
 }
 
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,42 +18,59 @@ nav{
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 
-  .hamburger-menu {
-    z-index: 1002;
+  .hamburger-menu, .close-menu {
     display: none;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .hamburger-menu {
     flex-direction: column;
     justify-content: space-around;
     width: 2rem;
     height: 2rem;
-    cursor: pointer;
 
     div {
       width: 2rem;
       height: 0.25rem;
       background-color: #333;
     }
-    
   }
-.close-menu {
-  z-index: 1003;
-  display: none;
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  font-size: 2em;
-  cursor: pointer;
-  color: #fff; // Change this to the color you want
-}
+
+  .close-menu {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 2em;
+    color: #fff;
+    z-index: 1003;
+  }
+
   ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 30%;
     transition: transform 0.3s ease-in-out;
-    transform: translateY(-100%);
 
     li {
       display: inline-block;
       margin-left: 1em;
+    }
+
+    @media (max-width: 1024px) {
+      transform: translateY(-100%);
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+
+      &.show {
+        transform: translateY(0);
+      }
+    }
+
+    @media (min-width: 1025px) {
+      flex-direction: row;
     }
   }
 
@@ -64,7 +81,6 @@ nav{
 
     &:hover {
       text-decoration: underline;
-      color: #000;
     }
   }
 
@@ -83,23 +99,23 @@ nav{
       align-items: center;
       justify-content: center;
 
-      li{
+      li {
         margin: 2em 0;
       }
 
-      li a{
+      a {
         color: #fff;
         font-size: 25px;
+
+        &:hover {
+          color: #fff;
         }
-
-      li a:hover{
-        color: #fff;
       }
-    }
 
-    ul.show {
-      display: flex;
-      transform: translateY(0);
+      &.show {
+        display: flex;
+        transform: translateY(0);
+      }
     }
 
     .hamburger-menu {
