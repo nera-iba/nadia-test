@@ -1,6 +1,7 @@
 .carousel {
     position: relative;
     width: 100vw;
+    height: 600px;
   }
 
   .carousel img {
@@ -8,23 +9,78 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-  }
+    height: 100%;
+    object-fit: cover; /*sikrer at billedet tilpasser højden på carousellen*/
+    opacity: 0; /* Start med 0 gennemsigtighed */
+    transition: opacity 0.5s ease-in-out; /* Tilføj en overgangseffekt på gennemsigtighed med 0.5 sekunders varighed */
+}
 
-  .carousel i {
+.carousel img.active {
+    opacity: 1; /* Gør det aktive billede fuldt synligt */
+}
+
+/*Carousel pile*/
+
+.carousel i {
     position: absolute;
     top: 35vh;
-    color: black;
+    color: #fff;
     font-size: 32px;
     cursor: pointer;
     z-index: 1;
+}
+
+.carousel .prev {
+    left: 20px;
+}
+
+.carousel .next {
+    right: 20px;
+}
+
+/*Carousel indikatorer*/
+.carousel-indicators {
+  position: absolute;
+  top: auto;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+
+/* For mobile screens */
+@media (max-width: 767px) {
+  .carousel {
+    height: 250px;
   }
   
-  .carousel .prev {
-    left: 20px;
-  }
-  .carousel .next {
-    right: 20px;
+  .carousel img {
+    height: auto; /* Allow the height to adjust automatically */
+    object-fit: fill; /* Fill the container without preserving the aspect ratio */
   }
 
- 
+  .carousel-indicators, .carousel-indicator {
+   display: none;
+  }
+
+  .carousel i {
+    top: 17vh;
+  }
+}

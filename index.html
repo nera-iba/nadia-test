@@ -6,104 +6,23 @@
     <title>Test document</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/1f99888007.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Side 1</a></li>
-                <li><a href="#">Side 2</a></li>
-                <li><a href="#">Side 3</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <!--Meget simpel slider/carousel-->
+        <!--Simpel slider/carousel-->
         <div class="carousel">
             <i class="prev fa-solid fa-arrow-left"></i>
             <img src="img/img-1.jpg" alt="image 1 sunset">
             <img src="img/img-2.jpg" alt="image 2">
             <img src="img/img-3.jpg" alt="image 3">
             <i class="next fa-solid fa-arrow-right"></i>
+            <!--slider indikatorer som viser hvor mange slides carousellen har-->
+            <div class="carousel-indicators"></div>
         </div>
-    </main>
-    <footer>
-        <section></section>
-        <section></section>
-        <section></section>
-    </footer>
-
-    <script>
-        //sikrer, at resten af JavaScript-koden indeni blokken ikke eksekveres, før DOM'en er fuldt indlæst.
-        //Lytter efter DOMContentLoaded-hændelsen for at sikre, at koden eksekveres, når DOM'en er fuldt indlæst
-        document.addEventListener('DOMContentLoaded', () => {
-            // Finder det carousel-element og billeder
-            const carousel = document.querySelector('.carousel');
-            const images = Array.from(carousel.querySelectorAll('img'));
-
-            // Initialiserer det aktuelle billede til det første
-            let currentIndex = 0;
-
-            // Sætter det første billede til at være synligt ved indlæsning
-            images.forEach((image, index) => {
-                image.style.display = index === currentIndex ? 'block' : 'none';
-            });
-
-            // Tilføjer en klikhændelse for "Forrige" knappen
-            carousel.querySelector('.prev').addEventListener('click', () => {
-                // Opdaterer det aktuelle billede til det foregående
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                // Opdaterer karusellen med det nye billede
-                updateCarousel();
-            });
-
-            // Tilføjer en klikhændelse for "Næste" knappen
-            carousel.querySelector('.next').addEventListener('click', () => {
-                // Opdaterer det aktuelle billede til det næste
-                currentIndex = (currentIndex + 1) % images.length;
-                // Opdaterer karusellen med det nye billede
-                updateCarousel();
-            });
-
-            // Funktion til at opdatere karusellen baseret på currentIndex
-            const updateCarousel = () => {
-                //Skjuler alle billeder undtagen det aktuelle
-               images.forEach((image, index) => {
-            image.style.display = index === currentIndex ? 'block' : 'none';
-                 });
-            }
-
-            // Tilføjer automatisk skift hvert 3000 millisekunder (3 sekunder)
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateCarousel();
-            }, 3000);
-        });
-
-
-
-
-        /*
-        carousel.querySelector('.prev').addEventListener('click', () => { //Gør brug af arrow function
-           
-            currentIndex--; //Fjerne 1 fra indexværdien for at gå tilbage til sidste billede
-            if (currentIndex < 0) { //Hvis index har en større værdi en 0 så fjern 1 fra indexværdien
-                currentIndex = images.length - 1; 
-            } 
-            updateCarousel(); //kald på funktionen
-        });
-
-        carousel.querySelector('.next').addEventListener('click', () => { 
-            currentIndex++; //Tilføjer en til billedets indexværdi
-            if (currentIndex > images.length - 1) { //Tjekker om currentIndex har nået det sidste billede i billedsættet
-            currentIndex = 0; //Sætter indexværdien til 0 for at starte forfra
-            } 
-            updateCarousel(); 
-        });
-
-        function updateCarousel() {
-        images.forEach((image, index) => {*/
-            </script>
+       
+    </header>
 </body>
 </html>
