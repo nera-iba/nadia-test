@@ -1,4 +1,3 @@
-        document.addEventListener('DOMContentLoaded', () => {
             //Variabler som anvendes i koden og som henter elementer fra HTML
             const carousel = document.querySelector('.carousel'); //henviser til class carousel i HTML
             const images = Array.from(carousel.querySelectorAll('img')); //henviser til img i HTML
@@ -55,4 +54,23 @@
             };
 
             updateIndicators(); //kalder funktionen updateIndicators, som kan ses ovenover
-        });
+
+/*------------------Accordion------------------*/
+
+document.querySelectorAll('.accordion-item h2').forEach((accordionToggle) => { //querySelectorAll er en funktion som henter alle elementer med class accordion-item h2 i HTML
+    accordionToggle.addEventListener('click', () => { //når der klikkes på et accordionToggle, skal der ske noget
+        const accordionItem = accordionToggle.parentNode; //accordionItem er det element som accordionToggle er inde i. parentNode er det element som er lige over accordionToggle i HTML. I dette tilfælde er det accordionItem. parentNode er en funktion som henter det element som er lige over det element som funktionen er inde i.
+        const accordionContent = accordionToggle.nextElementSibling; //accordionContent er det element som er lige under accordionToggle i HTML. nextElementSibling er en funktion som henter det element som er lige under det element som funktionen er inde i.
+        //de to variabler ovenover bruges senere i koden til at åbne og lukke accordionen og til at tilføje og fjerne class active
+
+        // If this accordion item is already open, close it.
+        if (accordionContent.style.maxHeight) {
+            accordionContent.style.maxHeight = null;
+            accordionItem.classList.remove('active');
+        } else {
+            // Otherwise, open this item.
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            accordionItem.classList.add('active');
+        }
+    });
+});
