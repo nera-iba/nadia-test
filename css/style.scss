@@ -3,6 +3,113 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/*-------------Navbar-----------------*/
+
+.logo{
+  width: 50px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  .hamburger-menu {
+    z-index: 1002;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background-color: #333;
+    }
+    
+  }
+.close-menu {
+  z-index: 1003;
+  display: none;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  cursor: pointer;
+  color: #fff; // Change this to the color you want
+}
+  ul {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+
+    li {
+      display: inline-block;
+      margin-left: 1em;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+      color: #000;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    ul {
+      z-index: 1001;
+      position: fixed;
+      flex-direction: column;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+
+      li{
+        margin: 2em 0;
+      }
+
+      li a{
+        color: #fff;
+        font-size: 25px;
+        }
+
+      li a:hover{
+        color: #fff;
+      }
+    }
+
+    ul.show {
+      display: flex;
+      transform: translateY(0);
+    }
+
+    .hamburger-menu {
+      display: flex;
+    }
+  }
+}
+
+/*-------------Link og knapper-----------------*/
+
 a{
   color: #000;
 }

@@ -12,6 +12,7 @@
 
             prevButton.addEventListener('click', () => updateCarousel(currentIndex - 1)); //når der klikkes på pilen til venstre, skal der vises det forrige billede, currentIndex sættes til -1 for at gå tilbage til det forrige billede
             nextButton.addEventListener('click', () => updateCarousel(currentIndex + 1)); //når der klikkes på pilen til højre, skal der vises det næste billede. CurrentIndex sættes til +1 for at gå til næste billede
+            
 
 
             //--------Billederne skifter selv---------//
@@ -64,13 +65,27 @@ document.querySelectorAll('.accordion-item h2').forEach((accordionToggle) => { /
         //de to variabler ovenover bruges senere i koden til at åbne og lukke accordionen og til at tilføje og fjerne class active
 
         // If this accordion item is already open, close it.
-        if (accordionContent.style.maxHeight) {
-            accordionContent.style.maxHeight = null;
-            accordionItem.classList.remove('active');
+        if (accordionContent.style.maxHeight) { //hvis accordionContent.style.maxHeight er sandt, så skal accordionen lukkes
+            accordionContent.style.maxHeight = null; //maxHeight er en funktion som sætter højden på et element. accordionContent er det element som er lige under accordionToggle i HTML. accordionContent.style.maxHeight sættes til null, som er 0px. Dette gør at accordionen lukkes.
+            accordionItem.classList.remove('active'); //fjerner class active fra accordionItem
         } else {
-            // Otherwise, open this item.
-            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-            accordionItem.classList.add('active');
+            // ellers skal accordionen åbnes
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px'; //scrollHeight er en funktion som henter højden på et element. accordionContent er det element som er lige under accordionToggle i HTML. accordionContent.style.maxHeight sættes til accordionContent.scrollHeight + 'px', som er højden på accordionContent. + 'px' er en string som tilføjes til højden på accordionContent, fordi accordionContent.style.maxHeight skal være en string.
+            accordionItem.classList.add('active'); //tilføjer class active til accordionItem
         }
     });
+});
+
+/*------------------Burger menu------------------*/
+const menu = document.querySelector('nav ul'); //variabel som henter elementet nav ul i HTML
+const closeButton = document.querySelector('.close-menu'); //variabel som henter elementet med class close-menu i HTML
+
+document.querySelector('.hamburger-menu').addEventListener('click', () => {
+    menu.classList.toggle('show'); //toggle er en funktion som tilføjer class show til menu, hvis den ikke har class show, og fjerner class show fra menu, hvis den har class show
+    closeButton.style.display = menu.classList.contains('show') ? 'block' : 'none';//if else statement. Hvis menu.classList indeholder class show, så skal closeButton vises, ellers skal closeButton ikke vises
+});
+
+closeButton.addEventListener('click', () => { //når der klikkes på closeButton, skal der ske noget
+    menu.classList.remove('show');//fjerner class show fra menu
+    closeButton.style.display = 'none'; //skjuler closeButton
 });
