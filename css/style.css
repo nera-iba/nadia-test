@@ -116,6 +116,11 @@ a {
   color: #000;
 }
 
+a:hover {
+  color: orange;
+  transition: 0.2s ease-out;
+}
+
 .btn {
   display: inline-block;
   padding: 10px 20px;

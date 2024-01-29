@@ -50,7 +50,7 @@
                         indicator.classList.add('active'); //tilføjer class active til indikatoren
                     } else {
                         indicator.classList.remove('active'); //ellers fjernes class active fra indikatoren
-                    }
+                    } 
                 });
             };
 

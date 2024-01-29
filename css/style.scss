@@ -38,25 +38,27 @@ nav {
   }
 
   .close-menu {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    font-size: 2em;
-    color: #fff;
-    z-index: 1003;
-  }
+     position: absolute;
+     top: 1em;
+     right: 1em;
+     font-size: 2em;
+     color: #fff;
+     z-index: 1003;
+   }
 
   ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 30%;
+    //height:100vh;
     transition: transform 0.3s ease-in-out;
 
     li {
       display: inline-block;
       margin-left: 1em;
     }
+
 
     @media (max-width: 1024px) {
       transform: translateY(-100%);
@@ -128,6 +130,11 @@ nav {
 
 a{
   color: #000;
+}
+
+a:hover{
+  color: orange;
+  transition: 0.2s ease-out;
 }
 
 .btn{

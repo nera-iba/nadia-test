@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <!--javascript-->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!--Data-filter is used to store the category that each button is responsible for filtering. When a button is clicked, you can access this value in your JavaScript to know which category to show.-->
+    <div class="filter-gallery">
+        <div class="button-container">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="nature">Nature</button>
+            <button class="filter-button" data-filter="animals">Animals</button>
+        </div>
+        <!--Data-category is used to store the category of each image. When a filter button is clicked, you can compare this value with the data-filter value of the clicked button to decide whether to show or hide the image.-->
+        <div class="image-container">
+            <div class="gallery-item" data-category="nature">
+                <img src="https://images.unsplash.com/photo-1682695797221-8164ff1fafc9?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 1">
+            </div>
+
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.unsplash.com/photo-1555169062-013468b47731?q=80&w=2712&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 2">
+            </div>
+           
+            <div class="gallery-item" data-category="nature">
+                <img src="https://images.unsplash.com/photo-1704775933342-a740af07085f?q=80&w=3175&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 3">
+            </div>
+
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 4">
+            </div>
+
+            <div class="gallery-item" data-category="nature">
+                <img src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 5">
+            </div>
+
+            <div class="gallery-item" data-category="nature">
+                <img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=2640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 6">
+            </div>
+           
+           
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.unsplash.com/photo-1527161153332-99adcc6f2966?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image 7">
+            </div>
+            <!-- Add more gallery items as needed -->
+        </div>
+    </div>
+</body>
+</html>

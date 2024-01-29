@@ -1,0 +1,47 @@
+.filter-button {
+    padding: 1em; /* Adjust as needed */
+    font-size: 16px; /* Adjust as needed */
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-block; /* Added to allow centering */
+}
+.filter-button:hover {
+    background-color: #dadada;
+}
+
+.filter-button.active {
+    background-color: #dadada;
+}
+
+.button-container {
+    text-align: center; /* Centers the buttons */
+}
+
+.filter-gallery {
+    display: block;
+}
+
+.image-container {
+    margin-top: 1em;
+    column-count: 3; /*column-count helps to create a grid layout*/
+    column-gap: 10px;
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        column-count: 1; /*adjusted to 1 column for mobile*/
+    }
+}
